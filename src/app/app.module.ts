@@ -67,20 +67,24 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
       },
       {
         path: 'check-out',
-        component: CheckOutComponent, canActivate: [AuthGuard]
+        component: CheckOutComponent, 
+        canActivate: [AuthGuard]
       },
       {
         path: 'order-success',
-        component: OrderSuccessComponent, canActivate: [AuthGuard]
+        component: OrderSuccessComponent, 
+        canActivate: [AuthGuard]
       },
 
       {
         path: 'admin/products',
-        component: AdminProductsComponent, canActivate: [AuthGuard]
+        component: AdminProductsComponent, 
+        canActivate: [AuthGuard, AdminAuthGuard]
       },
       {
         path: 'admin/orders',
-        component: AdminOrdersComponent, canActivate: [AuthGuard]
+        component: AdminOrdersComponent, 
+        canActivate: [AuthGuard, AdminAuthGuard]
       },
 
     ]),
