@@ -1,11 +1,12 @@
+import { AdminAuthGuard } from './admin-auth-guard.service';
 import { UserService } from './user.service';
 import { AuthGuard } from './auth-guard.service';
 import { AuthService } from './auth.service';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
-import { RouterModule, CanActivate } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { environment } from './../environments/environment';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, Component } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AngularFireModule } from '@angular/fire';
@@ -21,7 +22,6 @@ import { AdminProductsComponent } from './admin/admin-products/admin-products.co
 import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.component';
 import { LoginComponent } from './login/login.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { AngularFireDatabaseModule } from '@angular/fire/database';
 
 
 @NgModule({
@@ -67,20 +67,20 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
       },
       {
         path: 'check-out',
-        component: CheckOutComponent, canActivate: [AuthGuard]
+        component: CheckOutComponent
       },
       {
         path: 'order-success',
-        component: OrderSuccessComponent, canActivate: [AuthGuard]
+        component: OrderSuccessComponent
       },
 
       {
         path: 'admin/products',
-        component: AdminProductsComponent, canActivate: [AuthGuard]
+        component: AdminProductsComponent
       },
       {
         path: 'admin/orders',
-        component: AdminOrdersComponent, canActivate: [AuthGuard]
+        component: AdminOrdersComponent
       },
 
     ]),
@@ -88,6 +88,7 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
   providers: [
     AuthService,
     AuthGuard, 
+    AdminAuthGuard,
     UserService
   ],
   bootstrap: [AppComponent]
