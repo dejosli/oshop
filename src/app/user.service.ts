@@ -1,3 +1,4 @@
+import { AngularFireDatabase } from '@angular/fire/database';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -5,7 +6,15 @@ import { Injectable } from '@angular/core';
 })
 export class UserService {
 
-    constructor(){}
+  constructor(private db: AngularFireDatabase) {
+  }
+
+  save(user: firebase.User) {
+    this.db.object('/users/' + user.uid).update({
+      name: user.displayName,
+      email: user.email
+    });
+  }
 
 }
 
