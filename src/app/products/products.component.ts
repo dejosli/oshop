@@ -6,8 +6,10 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.css']
 })
+
 export class ProductsComponent {
   products$;
+  
   constructor(productService: ProductService) {
     this.products$ = productService.getAll();
    }
