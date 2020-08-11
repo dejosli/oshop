@@ -1,3 +1,4 @@
+import { ProductService } from './product.service';
 import { AdminAuthGuard } from './admin-auth-guard.service';
 import { UserService } from './user.service';
 import { AuthGuard } from './auth-guard.service';
@@ -93,7 +94,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AuthService,
     AuthGuard,
     AdminAuthGuard,
-    UserService
+    UserService,
+    ProductService,
   ],
   bootstrap: [AppComponent]
 })
