@@ -13,11 +13,11 @@ export class ProductService {
   }
 
   getAll() {
-    return this.db.list('/products');
+    return this.db.list('/products').valueChanges();
   }
 
   get(productId) {
-    return this.db.object('/products/' + productId);
+    return this.db.object('/products/' + productId).valueChanges();
   }
 
   update(productId, product){
