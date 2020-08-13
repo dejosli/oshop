@@ -1,5 +1,6 @@
 import { ProductService } from './../../product.service';
 import { Component, OnInit } from '@angular/core';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-admin-products',
