@@ -30,6 +30,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ProductFormComponent } from './admin/product-form/product-form.component';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { ProductFilterComponent } from './products/product-filter.component';
+import { ProductCardComponent } from './product-card/product-card.component';
 
 
 @NgModule({
@@ -44,7 +46,9 @@ import { CommonModule } from '@angular/common';
     AdminProductsComponent,
     AdminOrdersComponent,
     LoginComponent,
-    ProductFormComponent
+    ProductFormComponent,
+    ProductFilterComponent,
+    ProductCardComponent,
   ],
   imports: [
     BrowserModule,
@@ -80,32 +84,32 @@ import { CommonModule } from '@angular/common';
       },
       {
         path: 'check-out',
-        component: CheckOutComponent, 
+        component: CheckOutComponent,
         canActivate: [AuthGuard]
       },
       {
         path: 'order-success',
-        component: OrderSuccessComponent, 
+        component: OrderSuccessComponent,
         canActivate: [AuthGuard]
       },
       {
         path: 'admin/products/new',
-        component: ProductFormComponent, 
+        component: ProductFormComponent,
         canActivate: [AuthGuard, AdminAuthGuard]
       },
       {
         path: 'admin/products/:id',
-        component: ProductFormComponent, 
+        component: ProductFormComponent,
         canActivate: [AuthGuard, AdminAuthGuard]
       },
       {
         path: 'admin/products',
-        component: AdminProductsComponent, 
+        component: AdminProductsComponent,
         canActivate: [AuthGuard, AdminAuthGuard]
       },
       {
         path: 'admin/orders',
-        component: AdminOrdersComponent, 
+        component: AdminOrdersComponent,
         canActivate: [AuthGuard, AdminAuthGuard]
       },
 
