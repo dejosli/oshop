@@ -15,6 +15,7 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { CustomFormsModule } from 'ng2-validation';
+import { DataTablesModule } from 'angular-datatables';
 
 import { BsNavbarComponent } from './bs-navbar/bs-navbar.component';
 import { HomeComponent } from './home/home.component';
@@ -49,6 +50,7 @@ import { CommonModule } from '@angular/common';
     BrowserModule,
     FormsModule,
     CommonModule,
+    DataTablesModule,
     CustomFormsModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
