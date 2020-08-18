@@ -16,8 +16,13 @@ export class ShoppingCartService {
     });
   }
 
-  private getCart(cartId: string) {
+  async getCart() {
+    let cartId = await this.getOrCreateCartId();
     return this.db.object('/shopping-carts/' + cartId);
+  }
+
+  private getItem(cartId: string, productId: string) {
+    return this.db.object('/shopping-carts/' + cartId + '/items/' + productId);
   }
 
   private async getOrCreateCartId() {
@@ -31,11 +36,11 @@ export class ShoppingCartService {
 
   async addToCart(product: Product) {
     let cartId = await this.getOrCreateCartId();  
-    let item$ = this.db.object('/shopping-carts/' + cartId + '/items/' + product.key);
+    let item$ = this.getItem(cartId, product.key);
 
     item$.valueChanges().pipe(take(1)).subscribe((item: any) => {
         if(item) 
-          item$.update({ quantity: item.quantity + 1 }); 
+          item$.update({ product: product, quantity: item.quantity + 1 }); 
         else item$.set({product: product, quantity: 1 }); 
     });
   }
